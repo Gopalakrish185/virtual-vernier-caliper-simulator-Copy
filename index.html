@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Virtual Vernier Caliper Simulator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="container">
+<header><p class="eyebrow">OPEN-SOURCE MEASUREMENT LAB</p><h1>Virtual Vernier Caliper Simulator</h1><p>Move the sliding jaw, read the scales, and practise precise measurements.</p></header>
+<section class="card">
+<div class="toolbar"><label for="position">Jaw opening <output id="positionOut">12.30 mm</output></label><input id="position" type="range" min="0" max="100" step="0.02" value="12.30"><button id="random">Random measurement</button><button id="reset" class="secondary">Reset</button></div>
+<div class="instrument" role="img" aria-label="Interactive representation of a metric vernier caliper. The orange moving jaw slides with the jaw opening control."><svg id="caliper" viewBox="0 0 920 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<defs><linearGradient id="metal" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#dbe4ed"/><stop offset="0.5" stop-color="#f8fafc"/><stop offset="1" stop-color="#aab8c6"/></linearGradient></defs>
+<rect x="65" y="110" width="790" height="65" rx="5" fill="url(#metal)" stroke="#60758a" stroke-width="2"/><path d="M70 110 V37 H94 V95 Q94 108 108 110" fill="none" stroke="#60758a" stroke-width="20"/>
+<g id="mainTicks"></g><g id="sliderGroup" transform="translate(0 0)"><path d="M0 170 V37 H24 V111 H72 V171" fill="url(#metal)" stroke="#506276" stroke-width="3"/><rect x="0" y="144" width="178" height="87" rx="8" fill="#e9f1fa" stroke="#506276" stroke-width="3"/><rect x="14" y="161" width="148" height="37" rx="5" fill="#cde5ff" stroke="#618cb2"/><g id="vernierTicks"></g><text x="12" y="220" font-size="13" fill="#334155">VERNIER · LC 0.02 mm</text></g><text x="66" y="23" font-size="17" fill="#334155">Fixed jaw</text><text id="movingLabel" x="192" y="23" font-size="17" fill="#bd591c">Sliding jaw</text><text x="700" y="206" font-size="14" fill="#475569">Metric scale (mm)</text></svg></div>
+<div class="readout"><div><span>Main scale</span><strong id="mainReading">12.00 mm</strong></div><div><span>Vernier coincidence</span><strong id="coincidence">15 × 0.02 mm</strong></div><div><span>Final reading</span><strong id="reading">12.30 mm</strong></div></div>
+</section>
+<section class="card practice"><h2>Practice mode</h2><p>Hide the answer, estimate the reading, then check your work.</p><div class="practice-controls"><label for="guess">Your measurement (mm)</label><input type="number" id="guess" min="0" max="100" step="0.02" placeholder="e.g. 12.30"><button id="check">Check answer</button><button id="toggleAnswer" class="secondary">Hide answers</button></div><p id="feedback" aria-live="polite"></p><p id="score">Score: 0 correct out of 0 attempts</p></section>
+<footer><p>Educational model • Metric vernier resolution: 0.02 mm • For learning, not physical metrology calibration.</p></footer>
+</main><script src="script.js"></script></body></html>
